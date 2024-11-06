@@ -17,12 +17,12 @@ plt.figure(figsize=(10, 6))
 #despues de cambiar ssnn con ns-sn1, nnss con ns-sn2
 
 columnas = [
-    ("Tiempof4", "Voltajef4", "N-S (1 imán)"),         
+    ("Tiempof4", "Voltajef4", "N-S (1 imán)"),          
     ("Tiempof6", "Voltajef6", "S-N (1 imán)"),              
-    ("Tiempof8", "Voltajef8", "NN-SS (2 imanes)"),
+    ("Tiempof9", "Voltajef9", "NN-SS (2 imanes)"),
     ("Tiempof5", "Voltajef5", "SS-NN (2 imanes)"),   
     ("Tiempof1", "Voltajef1", "NS-SN (2 imanes) I"),
-    ("Tiempof9", "Voltajef9", "NS-SN (2 imanes) II")    
+    ("Tiempof8", "Voltajef8", "NS-SN (2 imanes) II")    
 ]
 def integral_prom(ti, tf, df_tiempo, df_voltaje):
     """
@@ -41,19 +41,17 @@ def integral_prom(ti, tf, df_tiempo, df_voltaje):
     return area_total
 
 
-#estos calculos son para los picos de cada grafico, no estan actualizados al cambio de datos
-
-n_s_peak1 = integral_prom(ti=0.75, tf=0.925, df_tiempo=df['Tiempof4'], df_voltaje=df['Voltajef4'])
-print(f"Área bajo la curva de N-S (1 imán) en el primer pico: {n_s_peak1:.4f} V*s")
-n_s_peak2 = integral_prom(ti=0.925, tf=1.05, df_tiempo=df['Tiempof4'], df_voltaje=df['Voltajef4'])
-print(f"Área bajo la curva de N-S (1 imán) en el segundo pico: {n_s_peak2:.4f} V*s")
+n_s_1_peak1 = integral_prom(ti=0.75, tf=0.925, df_tiempo=df['Tiempof4'], df_voltaje=df['Voltajef4'])
+print(f"Área bajo la curva de N-S (1 imán) en el primer pico: {n_s_1_peak1:.4f} V*s")
+n_s_1_peak2 = integral_prom(ti=0.925, tf=1.05, df_tiempo=df['Tiempof4'], df_voltaje=df['Voltajef4'])
+print(f"Área bajo la curva de N-S (1 imán) en el segundo pico: {n_s_1_peak2:.4f} V*s")
 print("_____")
 #----------------------------------------------
 
-s_n_peak1 = integral_prom(ti=0.65, tf=0.8, df_tiempo=df['Tiempof6'], df_voltaje=df['Voltajef6'])
-print(f"Área bajo la curva de S-N (1 imán) en el primer pico: {s_n_peak1:.4f} V*s")
-s_n_peak2 = integral_prom(ti=0.8, tf=1.0, df_tiempo=df['Tiempof6'], df_voltaje=df['Voltajef6'])
-print(f"Área bajo la curva de S-N (1 imán) en el segundo pico: {s_n_peak2:.4f} V*s")
+s_n_1_peak1 = integral_prom(ti=0.65, tf=0.8, df_tiempo=df['Tiempof6'], df_voltaje=df['Voltajef6'])
+print(f"Área bajo la curva de S-N (1 imán) en el primer pico: {s_n_1_peak1:.4f} V*s")
+s_n_1_peak2 = integral_prom(ti=0.8, tf=1.0, df_tiempo=df['Tiempof6'], df_voltaje=df['Voltajef6'])
+print(f"Área bajo la curva de S-N (1 imán) en el segundo pico: {s_n_1_peak2:.4f} V*s")
 print("_____")
 
 #----------------------------------------------
@@ -66,25 +64,25 @@ print("_____")
 
 #----------------------------------------------
 
-ss_nn_peak1 = integral_prom(ti=0.42, tf=0.56, df_tiempo=df['Tiempof1'], df_voltaje=df['Voltajef1'])
+ss_nn_peak1 = integral_prom(ti=0.7, tf=0.93, df_tiempo=df['Tiempof5'], df_voltaje=df['Voltajef5'])
 print(f"Área bajo la curva de SS-NN (2 imanes) en el primer pico: {ss_nn_peak1:.4f} V*s")
-ss_nn_peak2 = integral_prom(ti=0.56, tf=0.7, df_tiempo=df['Tiempof1'], df_voltaje=df['Voltajef1'])
+ss_nn_peak2 = integral_prom(ti=0.93, tf=1.05, df_tiempo=df['Tiempof5'], df_voltaje=df['Voltajef5'])
 print(f"Área bajo la curva de SS-NN (2 imanes) en el segundo pico: {ss_nn_peak2:.4f} V*s")
 print("_____")
 
 #----------------------------------------------
 
-ns_sn_1peak1 = integral_prom(ti=0.7, tf=0.93, df_tiempo=df['Tiempof5'], df_voltaje=df['Voltajef5'])
-print(f"Área bajo la curva de NS-SN (2 imanes) I en el primer pico: {ns_sn_1peak1:.4f} V*s")
-ns_sn_1peak2 = integral_prom(ti=0.93, tf=1.05, df_tiempo=df['Tiempof5'], df_voltaje=df['Voltajef5'])
-print(f"Área bajo la curva de NS-SN (2 imanes) I en el segundo pico: {ns_sn_1peak2:.4f} V*s")
+ns_sn_2_1_peak1 = integral_prom(ti=0.42, tf=0.56, df_tiempo=df['Tiempof1'], df_voltaje=df['Voltajef1'])
+print(f"Área bajo la curva de NS-SN (2 imanes) I en el primer pico: {ns_sn_2_1_peak1:.4f} V*s")
+ns_sn_2_1_peak2 = integral_prom(ti=0.56, tf=0.7, df_tiempo=df['Tiempof1'], df_voltaje=df['Voltajef1'])
+print(f"Área bajo la curva de NS-SN (2 imanes) I en el segundo pico: {ns_sn_2_1_peak2:.4f} V*s")
 print("_____")
 
 #----------------------------------------------
-ns_sn_2peak1 = integral_prom(ti=1.2, tf=1.355, df_tiempo=df['Tiempof8'], df_voltaje=df['Voltajef8'])
-print(f"Área bajo la curva de NS-SN (2 imanes) II en el primer pico: {ns_sn_2peak1:.4f} V*s")
-ns_sn_2peak2 = integral_prom(ti=1.355, tf=1.5, df_tiempo=df['Tiempof8'], df_voltaje=df['Voltajef8'])
-print(f"Área bajo la curva de NS-SN (2 imanes) II en el segundo pico: {ns_sn_2peak2:.4f} V*s")
+ns_sn_2_2_peak1 = integral_prom(ti=1.2, tf=1.355, df_tiempo=df['Tiempof8'], df_voltaje=df['Voltajef8'])
+print(f"Área bajo la curva de NS-SN (2 imanes) II en el primer pico: {ns_sn_2_2_peak1:.4f} V*s")
+ns_sn_2_2_peak2 = integral_prom(ti=1.355, tf=1.5, df_tiempo=df['Tiempof8'], df_voltaje=df['Voltajef8'])
+print(f"Área bajo la curva de NS-SN (2 imanes) II en el segundo pico: {ns_sn_2_2_peak2:.4f} V*s")
 print("_____")
 
 # Graficar cada conjunto de tiempo y voltaje, truncado a t <= 1.5
